@@ -1,0 +1,12 @@
+<div class="main_box">
+  <h2>Конвертер валют</h2>
+
+  <div class="currency_box" >
+    <div class="usd_box" *ngFor=" let current of currency">
+      <h3>{{current?.txt}}</h3>
+      <h1>{{current?.rate || 'невідомо'}}</h1>
+    </div>
+  </div>
+
+  <app-converter [current]="currency"></app-converter>
+</div>
