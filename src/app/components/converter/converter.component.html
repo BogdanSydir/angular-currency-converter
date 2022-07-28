@@ -1,22 +1,23 @@
-<form [formGroup]="form"  class="form_box">
+<form [formGroup]="form" class="form_box">
 
   <div class="give">
     Віддаю:
-    <select formControlName="select1" (change)="exchange(+inp2.value,  'value1','select2','select1')">
+    <select formControlName="select1" (change)="exchange(+inp2.value,  'input1','select2','select1')">
       <option [value]="1">UAH - Гривні</option>
       <option [value]="curr?.rate" *ngFor="let curr of current">{{curr.txt}}</option>
     </select>
-    <input type="number" formControlName="value1" #inp1 (input)="exchange(+inp1.value, 'value2', 'select1','select2')">
-
+    <input type="number" formControlName="input1" #inp1 (input)="exchange(+inp1.value, 'input2', 'select1','select2')">
+    <!--   inp*.value - значення в інпуті;  'inp_to_exchange' - інпут в який буде вестись перерахунок;
+    'selector1' - ім'я першого селектора (коеф. по відношенню до гривні); 'selector2' - ім'я другого селектора (коеф. по відношенню до гривні) -->
   </div>
 
   <div class="give">
     Отримую:
-    <select formControlName="select2" (change)="exchange(+inp1.value, 'value2', 'select1','select2')">
+    <select formControlName="select2" (change)="exchange(+inp1.value, 'input2', 'select1','select2')">
       <option [value]="1">UAH - Гривні</option>
       <option [value]="curr?.rate" *ngFor="let curr of current">{{curr.txt}}</option>
     </select>
-    <input type="number" formControlName="value2" #inp2 (input)="exchange(+inp2.value,  'value1','select2','select1')">
+    <input type="number" formControlName="input2" #inp2 (input)="exchange(+inp2.value,  'input1','select2','select1')">
   </div>
 </form>
 

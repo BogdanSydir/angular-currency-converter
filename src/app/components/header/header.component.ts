@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.exchangesService.getAll().pipe(
       filter(f => {
-        return !!f
+        return !!f //перевіряємо чи на запит щось повертається
       }),
       map(value => { //відсортовуємо потрібні валюти
         return value.filter(value1 => value1.cc == "USD" || value1.cc === "EUR")

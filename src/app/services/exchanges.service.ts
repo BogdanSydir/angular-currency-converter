@@ -14,6 +14,6 @@ export class ExchangesService {
   }
 
   getAll():Observable<IExchanges[]> {
-    return this.httpClient.get<IExchanges[]>(urls.exchanges)
+    return this.httpClient.get<IExchanges[]>(urls.exchanges) //витягує дані з API
   }
 }
